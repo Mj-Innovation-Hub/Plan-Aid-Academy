@@ -14,7 +14,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { title, category, summary, content } = body;
+    const { title, category, summary, content, author, targetAudience } = body;
 
     if (!title || !summary) {
       return NextResponse.json(
@@ -27,6 +27,8 @@ export async function POST(request: Request) {
       id: `anc-${Date.now()}`,
       title,
       category: category || 'Academic',
+      author: author || 'School Management',
+      targetAudience: targetAudience || 'Public',
       date: new Date().toISOString().split('T')[0],
       summary,
       content: content || summary,

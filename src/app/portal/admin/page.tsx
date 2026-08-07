@@ -211,12 +211,12 @@ export default function AdminDashboard() {
                       {lead.intendedSection}
                     </span>
                   </td>
-                  <td className="p-3 font-mono text-slate-500">{lead.createdDate}</td>
+                  <td className="p-3 font-mono text-slate-500">{lead.createdAt}</td>
                   <td className="p-3">
                     <span className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] ${
-                      lead.stage === 'Enrolled' ? 'bg-emerald-100 text-emerald-800' : lead.stage === 'Application Submitted' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'
+                      lead.stage === 'enrolled' ? 'bg-emerald-100 text-emerald-800' : lead.stage === 'application_submitted' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'
                     }`}>
-                      ● {lead.stage}
+                      ● {lead.stage.replace('_', ' ')}
                     </span>
                   </td>
                   <td className="p-3 text-right">

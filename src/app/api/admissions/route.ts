@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { mockCRMLeads } from '@/lib/mockData';
-import { CRMLead } from '@/lib/types';
+import { CRMLead, CRMStage } from '@/lib/types';
 
-// In-memory data store for serverless execution
 let leadsStore: CRMLead[] = [...mockCRMLeads];
 
 export async function GET() {
@@ -16,7 +15,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { parentName, email, phone, childName, intendedSection, notes } = body;
+    const { parentName, email, phone, childName, childAge, intendedSection, notes } = body;
 
     if (!parentName || !childName || !phone) {
       return NextResponse.json(
@@ -31,10 +30,15 @@ export async function POST(request: Request) {
       email: email || 'parent@gmail.com',
       phone,
       childName,
+      childAge: childAge ? Number(childAge) : 9,
       intendedSection: intendedSection || 'secondary',
-      stage: 'New Inquiry',
+      stage: 'new_inquiry',
+      source: 'Website Form',
       notes: notes || 'Online website inquiry',
-      createdDate: new Date().toISOString().split('T')[0],
+      createdAt: new Date().toISOString().split('T')[0],
+      updatedAt: new Date().toISOString().split('T')[0],
+      activities: [],
+      tasks: [],
     };
 
     leadsStore.unshift(newLead);
@@ -62,7 +66,8 @@ export async function PUT(request: Request) {
       return NextResponse.json({ success: false, message: 'Lead not found' }, { status: 404 });
     }
 
-    leadsStore[leadIndex].stage = stage;
+    leadsStore[leadIndex].stage = stage as CRMStage;
+    leadsStore[leadIndex].updatedAt = new Date().toISOString().split('T')[0];
 
     return NextResponse.json({
       success: true,

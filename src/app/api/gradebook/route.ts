@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { mockSubjectScores, mockStudents } from '@/lib/mockData';
+import { mockSubjectScores } from '@/lib/mockData';
 import { SubjectScore } from '@/lib/types';
 
 let scoresStore: SubjectScore[] = [...mockSubjectScores];
@@ -12,7 +12,6 @@ export async function GET(request: Request) {
     ? scoresStore.filter((s) => s.subjectName.toLowerCase() === subject.toLowerCase())
     : scoresStore;
 
-  // Compute stats
   const totals = filteredScores.map((s) => s.total);
   const avg = totals.length > 0 ? (totals.reduce((a, b) => a + b, 0) / totals.length).toFixed(1) : 0;
   const maxScore = totals.length > 0 ? Math.max(...totals) : 0;
@@ -60,7 +59,6 @@ export async function PUT(request: Request) {
       };
     } else {
       scoresStore.push({
-        id: `sc-${Date.now()}`,
         studentId,
         subjectName,
         ca1: Number(ca1),
