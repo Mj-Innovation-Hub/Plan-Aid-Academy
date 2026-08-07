@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+:root {
+  --color-primary-lightest: #cfecf7;
+  --color-primary-light: #a0d9ef;
+  --color-primary-medium: #62c1e5;
+  --color-primary: #20a7db;
+  --color-primary-dark: #1c96c5;
+  
+  --color-royal-500: #305cde;
+  --color-royal-600: #214dcf;
+  --color-royal-700: #1d43b5;
+  --color-royal-800: #193a9b;
+  --color-royal-900: #153081;
+  --color-royal-950: #0c1d4e;
+
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #20a7db;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(207, 236, 247, 0.4);
+}
+
+.glass-dark {
+  background: rgba(12, 29, 78, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Arabic typography styling */
+.font-arabic {
+  font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+  line-height: 1.8;
+}
+
+/* Printable report card styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-report-card, #printable-report-card * {
+    visibility: visible;
+  }
+  #printable-report-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
