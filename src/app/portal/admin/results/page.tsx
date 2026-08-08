@@ -30,7 +30,7 @@ export default function GradebookResultsPage() {
         </div>
       </div>
 
-      {/* SPSS-Style Statistical Summary Cards */}
+      {/* Statistical Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
           <div className="text-xs font-bold text-slate-400 uppercase">Class Mean Average</div>
@@ -64,11 +64,11 @@ export default function GradebookResultsPage() {
         onOpenReportCard={handleOpenReportCard}
       />
 
-      {/* SPSS Statistical Recharts Visualization */}
+      {/* Statistical Recharts Visualization */}
       <div className="space-y-4 pt-4">
         <h3 className="font-bold text-lg text-royal-950 flex items-center space-x-2">
           <BarChart2 className="w-5 h-5 text-primary-500" />
-          <span>SPSS-Style Grade Analytics & Subject Performance</span>
+          <span>Grade Analytics & Subject Performance</span>
         </h3>
         <GradeAnalyticsCharts />
       </div>

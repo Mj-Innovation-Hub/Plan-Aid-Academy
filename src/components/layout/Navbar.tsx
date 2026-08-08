@@ -42,50 +42,50 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Top Demo Bar for easy Role Testing */}
-      <div className="bg-royal-950 text-white text-xs py-1.5 px-4 flex items-center justify-between border-b border-royal-800/50">
-        <div className="flex items-center space-x-2">
+      <div className="bg-royal-950 text-white text-xs py-1.5 px-3 sm:px-4 flex flex-col sm:flex-row items-center justify-between border-b border-royal-800/50 gap-1.5 sm:gap-0">
+        <div className="flex items-center space-x-2 shrink-0">
           <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-primary-500 text-white">
             <Sparkles className="w-3 h-3 mr-1 animate-pulse" /> Live Portal Preview
           </span>
           <span className="hidden md:inline text-slate-300">Switch role to test portal dashboards:</span>
         </div>
         
-        <div className="flex items-center space-x-1.5 overflow-x-auto">
+        <div className="flex items-center space-x-1.5 overflow-x-auto max-w-full pb-0.5 sm:pb-0 scrollbar-none">
           <button
             onClick={() => setRole('super_admin')}
-            className={`px-2 py-0.5 rounded transition text-[11px] font-medium ${
-              role === 'super_admin' ? 'bg-royal-500 text-white shadow-sm' : 'bg-royal-900/60 text-slate-300 hover:text-white'
+            className={`px-2 py-0.5 rounded transition text-[10px] sm:text-[11px] font-medium whitespace-nowrap ${
+              role === 'super_admin' ? 'bg-royal-500 text-white shadow-xs' : 'bg-royal-900/60 text-slate-300 hover:text-white'
             }`}
           >
             Super Admin
           </button>
           <button
             onClick={() => setRole('admin')}
-            className={`px-2 py-0.5 rounded transition text-[11px] font-medium ${
-              role === 'admin' ? 'bg-royal-500 text-white shadow-sm' : 'bg-royal-900/60 text-slate-300 hover:text-white'
+            className={`px-2 py-0.5 rounded transition text-[10px] sm:text-[11px] font-medium whitespace-nowrap ${
+              role === 'admin' ? 'bg-royal-500 text-white shadow-xs' : 'bg-royal-900/60 text-slate-300 hover:text-white'
             }`}
           >
             Admin
           </button>
           <button
             onClick={() => setRole('teacher')}
-            className={`px-2 py-0.5 rounded transition text-[11px] font-medium ${
-              role === 'teacher' ? 'bg-royal-500 text-white shadow-sm' : 'bg-royal-900/60 text-slate-300 hover:text-white'
+            className={`px-2 py-0.5 rounded transition text-[10px] sm:text-[11px] font-medium whitespace-nowrap ${
+              role === 'teacher' ? 'bg-royal-500 text-white shadow-xs' : 'bg-royal-900/60 text-slate-300 hover:text-white'
             }`}
           >
             Teacher
           </button>
           <button
             onClick={() => setRole('student_parent')}
-            className={`px-2 py-0.5 rounded transition text-[11px] font-medium ${
-              role === 'student_parent' ? 'bg-royal-500 text-white shadow-sm' : 'bg-royal-900/60 text-slate-300 hover:text-white'
+            className={`px-2 py-0.5 rounded transition text-[10px] sm:text-[11px] font-medium whitespace-nowrap ${
+              role === 'student_parent' ? 'bg-royal-500 text-white shadow-xs' : 'bg-royal-900/60 text-slate-300 hover:text-white'
             }`}
           >
             Student / Parent
           </button>
           <Link
-            href={`/portal/${role === 'student_parent' ? 'student' : role}`}
-            className="ml-2 px-2.5 py-0.5 bg-primary-400 hover:bg-primary-500 text-royal-950 rounded font-semibold text-[11px] flex items-center transition shadow"
+            href={role === 'super_admin' ? '/portal/super-admin' : role === 'student_parent' ? '/portal/student' : `/portal/${role}`}
+            className="ml-1 sm:ml-2 px-2 py-0.5 sm:px-2.5 bg-primary-400 hover:bg-primary-500 text-royal-950 rounded font-semibold text-[10px] sm:text-[11px] flex items-center transition shadow-xs whitespace-nowrap shrink-0"
           >
             <LayoutDashboard className="w-3 h-3 mr-1" /> Portal
           </Link>
@@ -238,7 +238,7 @@ export const Navbar: React.FC = () => {
                 <span>Apply Now</span>
               </Link>
               <Link
-                href={`/portal/${role === 'student_parent' ? 'student' : role}`}
+                href={role === 'super_admin' ? '/portal/super-admin' : role === 'student_parent' ? '/portal/student' : `/portal/${role}`}
                 className="px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-royal-600 via-royal-700 to-royal-900 rounded-xl hover:shadow-lg hover:shadow-royal-500/20 transition duration-300 flex items-center space-x-1.5"
               >
                 <UserCheck className="w-4 h-4" />
@@ -249,7 +249,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center space-x-2">
               <Link
-                href={`/portal/${role === 'student_parent' ? 'student' : role}`}
+                href={role === 'super_admin' ? '/portal/super-admin' : role === 'student_parent' ? '/portal/student' : `/portal/${role}`}
                 className="px-3 py-1.5 text-xs font-semibold text-white bg-royal-700 rounded-lg"
               >
                 Portal

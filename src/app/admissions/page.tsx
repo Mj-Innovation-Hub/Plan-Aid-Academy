@@ -248,6 +248,45 @@ export default function AdmissionsPage() {
           )}
         </div>
       </section>
+
+      {/* Frequently Asked Questions Accordion */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-bold text-primary-500 uppercase tracking-wider">Parents Info</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-royal-950">Admissions FAQ</h2>
+        </div>
+
+        <div className="space-y-3">
+          {[
+            {
+              q: "What age range is eligible for admission into Primary and Secondary arms?",
+              a: "Primary Basic Education arm admits children aged 5 to 11 years into Primary 1 through 6. Secondary College admits students aged 11 to 17 into JSS 1 through SSS 3 streams."
+            },
+            {
+              q: "Is Qur'an memorization compulsory for all enrolled students?",
+              a: "Students enrolled in the Madrasah Tahfiz arm undergo intensive daily Hifz tracks. Primary and Secondary college students also receive mandatory weekly Tajweed and Islamic ethical orientation modules."
+            },
+            {
+              q: "What are the requirements for entrance examination?",
+              a: "Candidates write computerized assessment tests covering Mathematics, English Language, and General Science. Past examination practice papers are provided upon application submission."
+            },
+            {
+              q: "Do you offer school bus transportation and boarding facilities?",
+              a: "Yes! Air-conditioned school buses cover major routes in Kano GRA, Airport Road, and environs. State-of-the-art separate boarding hostels are available for secondary boys and girls."
+            }
+          ].map((faq, idx) => (
+            <details key={idx} className="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 transition [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-sm sm:text-base text-royal-950">
+                <span>{faq.q}</span>
+                <span className="ml-2 transition group-open:rotate-180 text-primary-500 font-extrabold">▼</span>
+              </summary>
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -73,7 +73,7 @@ export default function ContactPage() {
                     <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
                     <span>No. 14 Airport Road, GRA, Kano State, Nigeria</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-1">
                     <div className="flex items-center space-x-2">
                       <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                       <span className="font-mono font-semibold">+234 803 123 4567</span>
@@ -93,12 +93,12 @@ export default function ContactPage() {
 
               {/* Kaduna Campus */}
               <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-3">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                   <div className="flex items-center space-x-2 text-royal-600 font-bold text-sm">
                     <Building2 className="w-4 h-4" />
                     <span>Kaduna Campus</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 self-start sm:self-auto">
                     WhatsApp Active
                   </span>
                 </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                     <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
                     <span>Plot 45 Victoria Crescent, Independence Way, Kaduna</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-1">
                     <div className="flex items-center space-x-2">
                       <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                       <span className="font-mono font-semibold">+234 802 987 6543</span>

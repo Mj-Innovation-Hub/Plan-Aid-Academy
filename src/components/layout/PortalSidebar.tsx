@@ -24,7 +24,12 @@ import {
   Settings
 } from 'lucide-react';
 
-export const PortalSidebar: React.FC = () => {
+interface PortalSidebarProps {
+  mobileOpen?: boolean;
+  onCloseMobile?: () => void;
+}
+
+export const PortalSidebar: React.FC<PortalSidebarProps> = ({ mobileOpen, onCloseMobile }) => {
   const pathname = usePathname();
   const { currentUser, role, logout } = useAuth();
 
@@ -82,19 +87,29 @@ export const PortalSidebar: React.FC = () => {
 
   const navGroups = getRoleNavLinks();
 
-  return (
-    <aside className="w-64 bg-[#1B2A4A] text-white flex flex-col justify-between min-h-screen border-r border-[#2a3e68] shadow-xl shrink-0">
-      {/* Top Brand Identity */}
-      <div className="p-5 space-y-6">
-        <Link href="/" className="flex items-center space-x-3 group">
-          <div className="w-10 h-10 rounded-xl bg-[#0F8B9E] text-white flex items-center justify-center shadow-md">
-            <GraduationCap className="w-6 h-6" />
-          </div>
-          <div>
-            <h1 className="font-extrabold text-sm tracking-tight text-white leading-tight">PLAN AID ACADEMY</h1>
-            <p className="text-[10px] text-teal-300 font-bold uppercase tracking-wider">Primary • Secondary • Madrasah</p>
-          </div>
-        </Link>
+  const sidebarContent = (
+    <>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <Link href="/" onClick={onCloseMobile} className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 rounded-xl bg-[#0F8B9E] text-white flex items-center justify-center shadow-md">
+              <GraduationCap className="w-6 h-6" />
+            </div>
+            <div>
+              <h1 className="font-extrabold text-sm tracking-tight text-white leading-tight">PLAN AID ACADEMY</h1>
+              <p className="text-[10px] text-teal-300 font-bold uppercase tracking-wider">Primary • Secondary • Madrasah</p>
+            </div>
+          </Link>
+          {onCloseMobile && (
+            <button
+              onClick={onCloseMobile}
+              className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#23355a]"
+              aria-label="Close Mobile Sidebar"
+            >
+              <LogOut className="w-5 h-5 rotate-180" />
+            </button>
+          )}
+        </div>
 
         {/* Current User Card */}
         <div className="bg-[#121c32] rounded-2xl p-3.5 border border-[#23355a] flex items-center space-x-3">
@@ -126,6 +141,7 @@ export const PortalSidebar: React.FC = () => {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={onCloseMobile}
                     className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
                       isActive
                         ? 'bg-[#0F8B9E] text-white shadow-md font-bold'
@@ -146,22 +162,48 @@ export const PortalSidebar: React.FC = () => {
       </div>
 
       {/* Footer Exit Button */}
-      <div className="p-4 border-t border-[#2a3e68] space-y-2">
+      <div className="pt-4 border-t border-[#2a3e68] space-y-2 mt-auto">
         <Link
           href="/"
+          onClick={onCloseMobile}
           className="flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-[#23355a] rounded-xl transition"
         >
           <Sparkles className="w-4 h-4 text-teal-300" />
           <span>Public School Website</span>
         </Link>
         <button
-          onClick={logout}
+          onClick={() => {
+            if (onCloseMobile) onCloseMobile();
+            logout();
+          }}
           className="w-full flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-500/10 rounded-xl transition"
         >
           <LogOut className="w-4 h-4" />
           <span>Sign Out</span>
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Persistent Sidebar */}
+      <aside className="hidden lg:flex w-64 bg-[#1B2A4A] text-white flex-col justify-between min-h-screen border-r border-[#2a3e68] shadow-xl shrink-0 p-5">
+        {sidebarContent}
+      </aside>
+
+      {/* Mobile Drawer Overlay */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 flex">
+          <div
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
+            onClick={onCloseMobile}
+          />
+          <aside className="relative w-72 max-w-[85vw] bg-[#1B2A4A] text-white flex flex-col justify-between h-full border-r border-[#2a3e68] shadow-2xl z-10 p-5 overflow-y-auto">
+            {sidebarContent}
+          </aside>
+        </div>
+      )}
+    </>
   );
 };

@@ -13,6 +13,7 @@ export default function PortalLayout({
 }) {
   const pathname = usePathname();
   const { isLoggedIn, role } = useAuth();
+  const [mobileSidebarOpen, setMobileSidebarOpen] = React.useState(false);
   const isLoginPage = pathname === '/portal/login';
 
   if (isLoginPage) {
@@ -21,10 +22,15 @@ export default function PortalLayout({
 
   return (
     <div className="flex min-h-screen bg-slate-100 font-sans">
-      <PortalSidebar />
+      <PortalSidebar
+        mobileOpen={mobileSidebarOpen}
+        onCloseMobile={() => setMobileSidebarOpen(false)}
+      />
       <div className="flex-1 flex flex-col min-w-0">
-        <PortalHeader />
-        <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+        <PortalHeader
+          onToggleMobileSidebar={() => setMobileSidebarOpen(prev => !prev)}
+        />
+        <main className="flex-1 p-3 sm:p-6 overflow-y-auto">{children}</main>
       </div>
     </div>
   );

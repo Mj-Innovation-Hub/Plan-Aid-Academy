@@ -15,11 +15,16 @@ import {
   GraduationCap,
   Users,
   BookOpen,
-  Calculator
+  Calculator,
+  Menu
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const PortalHeader: React.FC = () => {
+interface PortalHeaderProps {
+  onToggleMobileSidebar?: () => void;
+}
+
+export const PortalHeader: React.FC<PortalHeaderProps> = ({ onToggleMobileSidebar }) => {
   const { currentUser, role, setRole, logout } = useAuth();
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -37,12 +42,22 @@ export const PortalHeader: React.FC = () => {
   };
 
   return (
-    <header className="bg-white border-b border-slate-200 py-3 px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
-      {/* Left Title / Quick Search */}
-      <div className="flex items-center space-x-6">
+    <header className="bg-white border-b border-slate-200 py-3 px-3 sm:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
+      {/* Left Title / Mobile Toggle / Quick Search */}
+      <div className="flex items-center space-x-2 sm:space-x-4">
+        {onToggleMobileSidebar && (
+          <button
+            onClick={onToggleMobileSidebar}
+            className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition"
+            aria-label="Open Mobile Menu"
+          >
+            <Menu className="w-5 h-5 text-royal-950" />
+          </button>
+        )}
+
         <div className="flex items-center space-x-2">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider hidden sm:inline">Session:</span>
-          <span className="px-2.5 py-1 bg-royal-50 border border-royal-100 rounded-lg text-xs font-extrabold text-royal-900">
+          <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-royal-50 border border-royal-100 rounded-lg text-[11px] sm:text-xs font-extrabold text-royal-900">
             2025/2026 • Term 3
           </span>
         </div>
@@ -59,17 +74,17 @@ export const PortalHeader: React.FC = () => {
       </div>
 
       {/* Right User Actions & Role Switcher */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2 sm:space-x-4">
         {/* Role Switcher Dropdown */}
         <div className="relative">
           <button
             onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-            className="flex items-center space-x-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition text-xs font-bold text-royal-950"
+            className="flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-3 py-1.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition text-[11px] sm:text-xs font-bold text-royal-950"
           >
-            <div className={`w-2 h-2 rounded-full ${roleLabels[role].color} animate-pulse`} />
+            <div className={`w-2 h-2 rounded-full ${roleLabels[role].color} animate-pulse shrink-0`} />
             <span className="hidden sm:inline text-slate-500 font-normal">Switch View:</span>
-            <span className="font-extrabold">{roleLabels[role].title}</span>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+            <span className="font-extrabold max-w-[85px] sm:max-w-none truncate">{roleLabels[role].title}</span>
+            <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
           </button>
 
           {roleDropdownOpen && (

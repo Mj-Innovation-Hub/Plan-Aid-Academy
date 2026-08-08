@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ReportCardModal } from '@/components/ui/ReportCardModal';
-import { mockStudents, mockSubjectScores } from '@/lib/mockData';
+import { mockStudents, mockSubjectScores, mockAnnouncements } from '@/lib/mockData';
 import { 
   Award, 
   BookOpen, 
@@ -15,7 +15,8 @@ import {
   Clock,
   ArrowRight,
   Check,
-  Circle
+  Circle,
+  Megaphone
 } from 'lucide-react';
 
 export default function StudentParentPortalPage() {
@@ -27,38 +28,36 @@ export default function StudentParentPortalPage() {
   return (
     <div className="space-y-6 pb-12 font-sans">
       {/* 1. Student Profile Hero Banner (Dark Navy-Teal Gradient Card) */}
-      <div className="bg-gradient-to-r from-[#0c1427] via-[#101d36] to-[#0F8B9E] text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative overflow-hidden">
-        <div className="flex items-center space-x-5 relative z-10">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#0F8B9E] text-white font-black text-2xl sm:text-3xl flex items-center justify-center border-2 border-white/20 shadow-md shrink-0">
+      <div className="bg-gradient-to-r from-[#0c1427] via-[#101d36] to-[#0F8B9E] text-white rounded-3xl p-5 sm:p-8 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative overflow-hidden">
+        <div className="flex items-center space-x-4 sm:space-x-5 relative z-10">
+          <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#0F8B9E] text-white font-black text-xl sm:text-3xl flex items-center justify-center border-2 border-white/20 shadow-md shrink-0">
             ZM
           </div>
           <div className="space-y-1">
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Zainab Musa Dantsoho</h1>
-            <div className="text-xs text-teal-100 font-medium flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-3xl font-black text-white tracking-tight">Zainab Musa Dantsoho</h1>
+            <div className="text-[11px] sm:text-xs text-teal-100 font-medium flex flex-wrap items-center gap-1.5 sm:gap-2">
               <span>Level: <strong>Primary / Madrasah</strong></span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>Reg: <strong className="font-mono">PAA-2024-001</strong></span>
-              <span>•</span>
-              <span>Class: <strong>Primary 5 A (Kano Campus)</strong></span>
+              <span className="hidden sm:inline">•</span>
+              <span>Class: <strong>Primary 5 A</strong></span>
             </div>
           </div>
         </div>
 
-        {/* Right Badges in Hero Banner */}
-        <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 relative z-10 shrink-0">
-          <div className="text-center px-2">
-            <div className="text-2xl font-black text-white">B+</div>
-            <div className="text-[10px] text-teal-200 uppercase font-bold tracking-wider">Avg. Grade</div>
+        {/* Right Badges in Hero Banner (Responsive Grid on Mobile) */}
+        <div className="grid grid-cols-3 gap-2 bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-white/15 relative z-10 shrink-0 text-center">
+          <div className="px-1 border-r border-white/20 last:border-r-0">
+            <div className="text-xl sm:text-2xl font-black text-white">B+</div>
+            <div className="text-[9px] sm:text-[10px] text-teal-200 uppercase font-bold tracking-wider">Avg. Grade</div>
           </div>
-          <div className="h-8 w-px bg-white/20" />
-          <div className="text-center px-2">
-            <div className="text-2xl font-black text-emerald-300">92%</div>
-            <div className="text-[10px] text-teal-200 uppercase font-bold tracking-wider">Attendance</div>
+          <div className="px-1 border-r border-white/20 last:border-r-0">
+            <div className="text-xl sm:text-2xl font-black text-emerald-300">92%</div>
+            <div className="text-[9px] sm:text-[10px] text-teal-200 uppercase font-bold tracking-wider">Attendance</div>
           </div>
-          <div className="h-8 w-px bg-white/20" />
-          <div className="text-center px-2">
-            <div className="text-2xl font-black text-amber-300">14/30</div>
-            <div className="text-[10px] text-teal-200 uppercase font-bold tracking-wider">Juz Completed</div>
+          <div className="px-1">
+            <div className="text-xl sm:text-2xl font-black text-amber-300">14/30</div>
+            <div className="text-[9px] sm:text-[10px] text-teal-200 uppercase font-bold tracking-wider">Juz Done</div>
           </div>
         </div>
       </div>
@@ -352,6 +351,48 @@ export default function StudentParentPortalPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 4. Student & Parent Announcements & School Calendar Bulletin Board */}
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+              <Megaphone className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-extrabold text-xl text-[#0c1427]">School Announcements & Calendar Notices</h3>
+              <p className="text-xs text-slate-500">Official updates on resumption, vacation, fee adjustments & CBT entrance exams</p>
+            </div>
+          </div>
+
+          <span className="px-3 py-1 bg-teal-50 text-[#0F8B9E] font-bold text-xs rounded-full">
+            Official Bulletin
+          </span>
+        </div>
+
+        {/* List of Student-Facing Announcements (Staff Only excluded) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {mockAnnouncements
+            .filter((ann) => ann.targetAudience !== 'Staff Only')
+            .map((ann) => (
+              <div key={ann.id} className="p-5 bg-slate-50/80 rounded-2xl border border-slate-200/80 space-y-3 flex flex-col justify-between hover:bg-white transition-all shadow-2xs">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0F8B9E] text-white uppercase">
+                      {ann.category}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400 font-bold">{ann.date}</span>
+                  </div>
+                  <h4 className="font-extrabold text-base text-[#0c1427]">{ann.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">{ann.content || ann.summary}</p>
+                </div>
+                <div className="pt-2 border-t border-slate-200/60 text-[11px] font-bold text-slate-400">
+                  Issued by: {ann.author}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
 

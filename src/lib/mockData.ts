@@ -217,6 +217,123 @@ export const mockTeachers: Teacher[] = [
     assignedClasses: ['Primary 5 Diamond', 'Primary 4 Emerald'],
     photoUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
     status: 'Active'
+  },
+  {
+    id: 'tch-4',
+    staffId: 'STF/2020/003',
+    fullName: 'Dr. Farooq Al-Mansoor',
+    email: 'f.mansoor@planaid.edu',
+    phone: '+234 803 111 8822',
+    section: 'secondary',
+    qualification: 'Ph.D Theoretical Physics (ABU Zaria)',
+    assignedSubjects: ['Physics', 'Advanced Mechanics', 'Electronics'],
+    assignedClasses: ['SSS 1 Science', 'SSS 3 Physics'],
+    photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-5',
+    staffId: 'STF/2021/014',
+    fullName: 'Ustadha Aisha Usman',
+    email: 'a.usman@planaid.edu',
+    phone: '+234 809 333 4411',
+    section: 'madrasah',
+    qualification: 'M.A. Arabic Linguistics (KASU), Hafiza (30 Juz)',
+    assignedSubjects: ['Quran Memorization', 'Fiqh', 'Hadith Studies'],
+    assignedClasses: ['Tahfiz Girls Level 3', 'Primary 6 Arabic'],
+    photoUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-6',
+    staffId: 'STF/2022/025',
+    fullName: 'Mr. Babatunde Ogunleye',
+    email: 'b.ogunleye@planaid.edu',
+    phone: '+234 805 222 7744',
+    section: 'secondary',
+    qualification: 'B.Sc Chemistry (UI), WAEC Examiner',
+    assignedSubjects: ['Organic Chemistry', 'Practical Chemistry', 'Agric Science'],
+    assignedClasses: ['SSS 2 Science', 'SSS 3 Chemistry'],
+    photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-7',
+    staffId: 'STF/2023/031',
+    fullName: 'Malama Fatima Danbatta',
+    email: 'f.danbatta@planaid.edu',
+    phone: '+234 803 999 5566',
+    section: 'primary',
+    qualification: 'B.Ed Early Childhood Education (BUK)',
+    assignedSubjects: ['English Phonics', 'Verbal Reasoning', 'Social Studies'],
+    assignedClasses: ['Primary 1 Gold', 'Primary 2 Diamond'],
+    photoUrl: 'https://images.unsplash.com/photo-1580894732413-a923f71a936c?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-8',
+    staffId: 'STF/2024/042',
+    fullName: 'Engr. Mustapha Bello',
+    email: 'm.bello@planaid.edu',
+    phone: '+234 808 666 3399',
+    section: 'secondary',
+    qualification: 'B.Sc Computer Engineering (Covenant Univ)',
+    assignedSubjects: ['Data Processing', 'Web Development', 'Micro-controllers'],
+    assignedClasses: ['JSS 2 Robotics', 'SSS 2 Tech'],
+    photoUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-9',
+    staffId: 'STF/2019/001',
+    fullName: 'Dr. Zainab Sulaiman',
+    email: 'z.sulaiman@planaid.edu',
+    phone: '+234 803 888 1122',
+    section: 'secondary',
+    qualification: 'Ph.D English Literature (Unilag), Cambridge IGCSE',
+    assignedSubjects: ['Literature-in-English', 'Use of English', 'Debate Club'],
+    assignedClasses: ['SSS 1 Arts', 'SSS 3 College'],
+    photoUrl: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-10',
+    staffId: 'STF/2022/038',
+    fullName: 'Ustadh Ibrahim Bako',
+    email: 'i.bako@planaid.edu',
+    phone: '+234 802 777 8811',
+    section: 'madrasah',
+    qualification: 'B.A. Sharia Law (Islamic Univ of Medina)',
+    assignedSubjects: ['Islamic Jurisprudence (Fiqh)', 'Sirah', 'Arabic Grammar'],
+    assignedClasses: ['Tahfiz Level 3', 'SSS 2 Islamic Studies'],
+    photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-11',
+    staffId: 'STF/2023/050',
+    fullName: 'Mrs. Maryam Idris',
+    email: 'm.idris@planaid.edu',
+    phone: '+234 806 111 4477',
+    section: 'primary',
+    qualification: 'B.Sc Biology (Bayero University Kano)',
+    assignedSubjects: ['Basic Science', 'Health Education', 'Environmental Studies'],
+    assignedClasses: ['Primary 3 Gold', 'Primary 4 Diamond'],
+    photoUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    status: 'Active'
+  },
+  {
+    id: 'tch-12',
+    staffId: 'STF/2021/017',
+    fullName: 'Mr. Kingsley Okon',
+    email: 'k.okon@planaid.edu',
+    phone: '+234 803 222 9911',
+    section: 'secondary',
+    qualification: 'B.Sc Accounting & Finance (Unical), ACCA',
+    assignedSubjects: ['Financial Accounting', 'Commerce', 'Business Studies'],
+    assignedClasses: ['SSS 2 Commercial', 'SSS 3 Business'],
+    photoUrl: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80',
+    status: 'On Leave'
   }
 ];
 
@@ -425,44 +542,206 @@ export const mockFeeRecords: FeeRecord[] = [
     status: 'Overdue',
     dueDate: '2026-05-15',
     paymentHistory: []
+  },
+  {
+    id: 'fee-105',
+    studentId: 'std-105',
+    studentName: 'Usman Abdullahi Musa',
+    class: 'SSS 2 Tech',
+    section: 'secondary',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 285000,
+    paidAmount: 285000,
+    balance: 0,
+    status: 'Paid',
+    dueDate: '2026-05-15',
+    paymentHistory: [
+      { id: 'pay-5', amount: 285000, date: '2026-05-02', method: 'Bank Transfer', receiptNo: 'RCP-88790' }
+    ]
+  },
+  {
+    id: 'fee-106',
+    studentId: 'std-106',
+    studentName: 'Aisha Garba Shehu',
+    class: 'Primary 3 Emerald',
+    section: 'primary',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 175000,
+    paidAmount: 100000,
+    balance: 75000,
+    status: 'Partial',
+    dueDate: '2026-05-15',
+    paymentHistory: [
+      { id: 'pay-6', amount: 100000, date: '2026-05-18', method: 'Card', receiptNo: 'RCP-89012' }
+    ]
+  },
+  {
+    id: 'fee-107',
+    studentId: 'std-107',
+    studentName: 'Yusuf Ibrahim Al-Hassan',
+    class: 'Tahfiz Boarding Level 3',
+    section: 'madrasah',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 320000,
+    paidAmount: 320000,
+    balance: 0,
+    status: 'Paid',
+    dueDate: '2026-05-15',
+    paymentHistory: [
+      { id: 'pay-7', amount: 200000, date: '2026-04-28', method: 'Bank Transfer', receiptNo: 'RCP-88600' },
+      { id: 'pay-8', amount: 120000, date: '2026-05-20', method: 'Bank Transfer', receiptNo: 'RCP-89110' }
+    ]
+  },
+  {
+    id: 'fee-108',
+    studentId: 'std-108',
+    studentName: 'Khadijah Suleiman Kabir',
+    class: 'JSS 1 Science',
+    section: 'secondary',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 240000,
+    paidAmount: 180000,
+    balance: 60000,
+    status: 'Partial',
+    dueDate: '2026-05-15',
+    paymentHistory: [
+      { id: 'pay-9', amount: 180000, date: '2026-05-11', method: 'Bank Transfer', receiptNo: 'RCP-88930' }
+    ]
+  },
+  {
+    id: 'fee-109',
+    studentId: 'std-109',
+    studentName: 'Mustapha Muhammad Lawal',
+    class: 'Primary 1 Gold',
+    section: 'primary',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 160000,
+    paidAmount: 0,
+    balance: 160000,
+    status: 'Overdue',
+    dueDate: '2026-05-15',
+    paymentHistory: []
+  },
+  {
+    id: 'fee-110',
+    studentId: 'std-110',
+    studentName: 'Zainab Tukur Adamu',
+    class: 'SSS 3 Science (WAEC)',
+    section: 'secondary',
+    term: 'Term 3',
+    session: '2025/2026',
+    totalAmount: 310000,
+    paidAmount: 310000,
+    balance: 0,
+    status: 'Paid',
+    dueDate: '2026-05-15',
+    paymentHistory: [
+      { id: 'pay-10', amount: 310000, date: '2026-04-30', method: 'Bank Transfer', receiptNo: 'RCP-88655' }
+    ]
   }
 ];
 
 export const mockAnnouncements: Announcement[] = [
   {
     id: 'ann-1',
-    title: 'National Robotics & Coding Championship 2026 - Gold Medal Win',
-    summary: 'Plan Aid Academy Secondary Robotics Team won 1st Place in the National Junior Automation Challenge with their autonomous solar rover.',
-    content: 'We are overjoyed to announce that our senior secondary robotics squad represented Kano State and secured 1st position in the National Automation Competition held in Abuja. Under the guidance of Engr. Tariq Hassan, our students engineered an autonomous solar rover capable of navigating farmland obstacle courses.',
-    author: 'Management',
-    category: 'STEM & Tech',
-    targetAudience: 'Public',
-    date: '2026-08-01',
-    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    title: 'School Resumption & Vacation Dates for 2026/2027 Academic Session',
+    summary: 'Term 3 vacation commences Friday 14th August 2026. Official resumption for Term 1 is Monday 14th September 2026.',
+    content: 'All parents, guardians, and students are hereby informed that the current 2025/2026 Term 3 academic session officially ends on Friday 14th August 2026 at 1:00 PM. Vacation period spans 4 weeks. Boarding hostels open on Sunday 13th September 2026 by 2:00 PM. Full morning assembly and classes resume promptly at 7:30 AM on Monday 14th September 2026.',
+    author: 'Office of the Principal',
+    category: 'Academic',
+    targetAudience: 'Students',
+    date: '2026-08-06',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
     isImportant: true
   },
   {
     id: 'ann-2',
-    title: 'Annual Hifz Graduation & Quran Recitation Ceremony Announced',
-    summary: 'Join us on Sunday September 6th as 14 students complete the full memorization of the Glorious Qur’an.',
-    content: 'The Board of Trustees and Madrasah Directorate cordially invite all parents, guardians, and well-wishers to our 8th Annual Hifz Convocation. 14 brilliant young boys and girls will be crowned Huffman after completing their full 30 Juz memorization with Ijazah.',
-    author: 'Ustadh Muhammad Al-Hafiz',
-    category: 'Islamic Event',
-    targetAudience: 'Public',
-    date: '2026-07-25',
-    imageUrl: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80',
+    title: 'Approved 2026/2027 Tuition Fee Restructure & Payment Installments',
+    summary: 'Notice of a 10% fee adjustment for 2026/2027 session due to upgraded fiber Wi-Fi, robotics kits, and air-conditioned bus fleet.',
+    content: 'Following approval by the Governing Board, tuition fees for the upcoming 2026/2027 session will experience a 10% adjustment across Primary, Secondary, and Madrasah arms. This marginal update supports our new AI Robotics & Mechatronics lab kits, high-speed fiber internet in hostels, and new air-conditioned school bus fleet. Installment payment options (60% deposit at resumption, 40% mid-term) remain active.',
+    author: 'Bursary & Accounts Directorate',
+    category: 'Financial',
+    targetAudience: 'Parents',
+    date: '2026-08-04',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
     isImportant: true
   },
   {
     id: 'ann-3',
-    title: 'Resumption Date & Orientation for 2026/2027 Academic Session',
-    summary: 'All new and returning students resume on Monday 14th September 2026.',
-    content: 'School gates open at 7:15 AM on Monday 14th September 2026. Uniform compliance and complete book packs will be inspected during morning assembly.',
-    author: 'School Registry',
-    category: 'Academic',
-    targetAudience: 'Parents',
-    date: '2026-07-15',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
+    title: '2026/2027 Admissions Timeframe & CBT Entrance Examination Date',
+    summary: 'Online applications close August 25th, 2026. Computerized CBT entrance screening takes place Saturday 29th August 2026.',
+    content: 'Prospective families applying into Primary, Secondary, and Madrasah Tahfiz arms are reminded that the online portal registration deadline is Tuesday 25th August 2026. Computerized Aptitude Screening Tests (CBT) covering Mathematics, English, General Science, and Tajweed will take place at Kano Main Campus e-Testing Centre on Saturday 29th August 2026 at 9:00 AM.',
+    author: 'Admissions Office',
+    category: 'Administrative',
+    targetAudience: 'Public',
+    date: '2026-08-02',
+    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    isImportant: true
+  },
+  {
+    id: 'ann-4',
+    title: 'National Robotics & Coding Championship 2026 - Gold Medal Win',
+    summary: 'Plan Aid Academy Secondary Robotics Squad won 1st Place in the National Junior Automation Challenge with their autonomous solar rover.',
+    content: 'We are overjoyed to announce that our senior secondary robotics squad represented Kano State and secured 1st position in the National Automation Competition held in Abuja. Under the guidance of Engr. Tariq Hassan, our students engineered an autonomous solar rover capable of navigating farmland obstacle courses.',
+    author: 'STEM Dept',
+    category: 'STEM & Tech',
+    targetAudience: 'All Portal',
+    date: '2026-08-01',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    isImportant: false
+  },
+  {
+    id: 'ann-5',
+    title: 'Annual Hifz Graduation & Quran Recitation Ceremony',
+    summary: 'Join us on Sunday September 6th as 14 students complete the full memorization of the Glorious Qur’an with Ijazah.',
+    content: 'The Board of Trustees and Madrasah Directorate cordially invite all parents, guardians, and well-wishers to our 8th Annual Hifz Convocation. 14 brilliant young boys and girls will be crowned Huffaz after completing their full 30 Juz memorization with Ijazah.',
+    author: 'Madrasah Directorate',
+    category: 'Islamic Event',
+    targetAudience: 'Public',
+    date: '2026-07-25',
+    imageUrl: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80',
+    isImportant: false
+  },
+  {
+    id: 'ann-6',
+    title: '[STAFF ONLY] Term 3 Gradebook Final Submission & Marking Deadline',
+    summary: 'CONFIDENTIAL STAFF NOTICE: All CA1, CA2, and Final Exam scores must be uploaded to the portal by Monday 10th August 2026.',
+    content: 'This is a mandatory reminder for all teaching staff across Primary, Secondary, and Madrasah arms. All CA1 (15%), CA2 (15%), and Final Examination (70%) marks must be completely finalized and approved in the portal by 11:59 PM on Monday 10th August 2026. The Bursary and Registry will lock score edits after this deadline to facilitate printing of terminal report cards.',
+    author: 'Academic Planning Committee',
+    category: 'Administrative',
+    targetAudience: 'Staff Only',
+    date: '2026-08-05',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    isImportant: true
+  },
+  {
+    id: 'ann-7',
+    title: '[STAFF ONLY] Mandatory Annual Faculty Retreat & E-Learning Workshop',
+    summary: 'CONFIDENTIAL STAFF NOTICE: All instructors must attend the pre-resumption pedagogy workshop on Tuesday 8th September 2026.',
+    content: 'All full-time and part-time teaching staff are required to participate in the pre-session Faculty Development Workshop scheduled for Tuesday 8th September 2026 at the Main Campus Auditorium. Topics include advanced Turbopack LMS integration, AI-assisted rubric grading, and student mentorship strategies. Attendance is mandatory and forms part of annual staff appraisal.',
+    author: 'Human Resources',
+    category: 'Administrative',
+    targetAudience: 'Staff Only',
+    date: '2026-08-03',
+    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+    isImportant: true
+  },
+  {
+    id: 'ann-8',
+    title: '[STAFF ONLY] Updated Staff Medical Welfare & Performance Incentive Structure',
+    summary: 'CONFIDENTIAL STAFF NOTICE: HR announcement regarding updated HMO coverage and annual bonus criteria.',
+    content: 'Management is pleased to announce an enhanced staff medical insurance scheme (HMO) covering spouse and up to 4 children, effective September 1, 2026. Additionally, teachers whose classes achieve over 90% distinction in WAEC/NECO and Hifz evaluations will be eligible for performance bonuses.',
+    author: 'Board of Governors',
+    category: 'Administrative',
+    targetAudience: 'Staff Only',
+    date: '2026-07-28',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    isImportant: false
   }
 ];
 

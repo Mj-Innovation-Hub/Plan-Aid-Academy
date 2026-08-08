@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { mockStudents, mockAnnouncements } from '@/lib/mockData';
 import { 
   Users, 
   Calculator, 
@@ -12,9 +13,10 @@ import {
   Clock, 
   Edit3,
   Award,
-  Sparkles
+  Sparkles,
+  Megaphone,
+  Lock
 } from 'lucide-react';
-import { mockStudents } from '@/lib/mockData';
 
 export default function TeacherDashboard() {
   const teacherClasses = ['JSS 3 Gold', 'SSS 2 Tech Stream'];
@@ -69,40 +71,102 @@ export default function TeacherDashboard() {
           <span className="text-xs font-bold text-slate-500">28 Students Enrolled</span>
         </div>
 
-        <table className="w-full text-left text-xs border-collapse">
-          <thead>
-            <tr className="bg-[#0c1427] text-white font-bold">
-              <th className="p-3">Admission No</th>
-              <th className="p-3">Student Name</th>
-              <th className="p-3">Gender</th>
-              <th className="p-3">Term Attendance</th>
-              <th className="p-3 text-right">Quick Score Entry</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {mockStudents.filter(s => s.class === 'JSS 3 Gold').map((std) => (
-              <tr key={std.id} className="hover:bg-slate-50">
-                <td className="p-3 font-mono font-bold text-slate-600">{std.admissionNo}</td>
-                <td className="p-3">
-                  <div className="flex items-center space-x-2">
-                    <img src={std.photoUrl} alt={std.fullName} className="w-7 h-7 rounded-full object-cover border" />
-                    <span className="font-bold text-[#0c1427]">{std.fullName}</span>
-                  </div>
-                </td>
-                <td className="p-3 text-slate-700">{std.gender}</td>
-                <td className="p-3 font-bold text-emerald-600">{std.attendancePercentage}%</td>
-                <td className="p-3 text-right">
-                  <Link
-                    href="/portal/admin/results"
-                    className="px-3 py-1 bg-teal-50 hover:bg-teal-100 text-[#0F8B9E] font-bold rounded-lg text-[11px] transition"
-                  >
-                    Edit Scores
-                  </Link>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs border-collapse min-w-[640px]">
+            <thead>
+              <tr className="bg-[#0c1427] text-white font-bold">
+                <th className="p-3">Admission No</th>
+                <th className="p-3">Student Name</th>
+                <th className="p-3">Gender</th>
+                <th className="p-3">Term Attendance</th>
+                <th className="p-3 text-right">Quick Score Entry</th>
               </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {mockStudents.filter(s => s.class === 'JSS 3 Gold').map((std) => (
+                <tr key={std.id} className="hover:bg-slate-50">
+                  <td className="p-3 font-mono font-bold text-slate-600">{std.admissionNo}</td>
+                  <td className="p-3">
+                    <div className="flex items-center space-x-2">
+                      <img src={std.photoUrl} alt={std.fullName} className="w-7 h-7 rounded-full object-cover border" />
+                      <span className="font-bold text-[#0c1427]">{std.fullName}</span>
+                    </div>
+                  </td>
+                  <td className="p-3 text-slate-700">{std.gender}</td>
+                  <td className="p-3 font-bold text-emerald-600">{std.attendancePercentage}%</td>
+                  <td className="p-3 text-right">
+                    <Link
+                      href="/portal/admin/results"
+                      className="px-3 py-1 bg-teal-50 hover:bg-teal-100 text-[#0F8B9E] font-bold rounded-lg text-[11px] transition"
+                    >
+                      Edit Scores
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Internal Staff Memos & Announcements Bulletin Section */}
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-2xl bg-[#0c1427] text-amber-300 flex items-center justify-center font-bold">
+              <Lock className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-extrabold text-xl text-[#0c1427]">Staff Internal Memos & Faculty Announcements</h3>
+              <p className="text-xs text-slate-500">Confidential faculty notices, grade submission deadlines & HR welfare memos</p>
+            </div>
+          </div>
+
+          <span className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-300 font-extrabold text-xs rounded-full flex items-center space-x-1">
+            <Lock className="w-3 h-3" />
+            <span>Staff Confidential Access</span>
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {mockAnnouncements
+            .filter((ann) => ann.targetAudience === 'Staff Only' || ann.targetAudience === 'All Portal' || ann.targetAudience === 'Teachers')
+            .map((ann) => (
+              <div
+                key={ann.id}
+                className={`p-5 rounded-2xl border space-y-3 flex flex-col justify-between transition-all ${
+                  ann.targetAudience === 'Staff Only'
+                    ? 'bg-amber-50/90 border-amber-200 shadow-xs'
+                    : 'bg-slate-50 border-slate-200'
+                }`}
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`px-2.5 py-0.5 rounded text-[10px] font-black uppercase ${
+                        ann.targetAudience === 'Staff Only'
+                          ? 'bg-[#0c1427] text-amber-300 border border-amber-400'
+                          : 'bg-[#0F8B9E] text-white'
+                      }`}
+                    >
+                      {ann.targetAudience === 'Staff Only' ? '🔒 Staff Only Memo' : ann.category}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-500 font-bold">{ann.date}</span>
+                  </div>
+
+                  <h4 className="font-extrabold text-base text-[#0c1427]">{ann.title}</h4>
+                  <p className="text-xs text-slate-700 leading-relaxed font-medium">{ann.content || ann.summary}</p>
+                </div>
+
+                <div className="pt-2 border-t border-slate-200/80 text-[11px] font-bold text-slate-500 flex items-center justify-between">
+                  <span>Sender: {ann.author}</span>
+                  {ann.isImportant && (
+                    <span className="text-rose-600 font-extrabold">● High Priority Action Required</span>
+                  )}
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+        </div>
       </div>
     </div>
   );

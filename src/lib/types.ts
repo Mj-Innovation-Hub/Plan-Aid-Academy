@@ -153,8 +153,8 @@ export interface Announcement {
   summary: string;
   content: string;
   author: string;
-  category: 'Academic' | 'Islamic Event' | 'STEM & Tech' | 'Sports' | 'General';
-  targetAudience: 'Public' | 'All Portal' | 'Parents' | 'Teachers';
+  category: 'Academic' | 'Islamic Event' | 'STEM & Tech' | 'Sports' | 'General' | 'Administrative' | 'Financial';
+  targetAudience: 'Public' | 'All Portal' | 'Parents' | 'Teachers' | 'Students' | 'Staff Only';
   date: string;
   imageUrl?: string;
   isImportant?: boolean;

@@ -169,14 +169,14 @@ export const CRMBoard: React.FC<CRMBoardProps> = ({ initialLeads }) => {
       </div>
 
       {/* Kanban Stages Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto pb-4">
+      <div className="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin">
         {stages.map((stage) => {
           const stageLeads = filteredLeads.filter((l) => l.stage === stage.key);
 
           return (
             <div
               key={stage.key}
-              className="bg-slate-100/70 rounded-2xl p-3 border border-slate-200/80 min-h-[500px] flex flex-col space-y-3"
+              className="w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-slate-100/70 rounded-2xl p-3 border border-slate-200/80 min-h-[450px] sm:min-h-[500px] flex flex-col space-y-3"
             >
               {/* Stage Header */}
               <div className="flex items-center justify-between pb-2 border-b border-slate-200">
