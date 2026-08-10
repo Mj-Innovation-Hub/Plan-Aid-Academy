@@ -348,8 +348,8 @@ export default function AdminDashboard() {
                   <tr key={fee.id} className="hover:bg-slate-50">
                     <td className="p-3 font-mono font-semibold text-slate-600">{fee.id}</td>
                     <td className="p-3 font-bold text-[#1B2A4A]">{fee.studentName}</td>
-                    <td className="p-3 font-bold text-slate-700">₦{fee.totalFee.toLocaleString()}</td>
-                    <td className="p-3 font-bold text-emerald-700">₦{fee.amountPaid.toLocaleString()}</td>
+                    <td className="p-3 font-bold text-slate-700">₦{fee.totalAmount.toLocaleString()}</td>
+                    <td className="p-3 font-bold text-emerald-700">₦{fee.paidAmount.toLocaleString()}</td>
                     <td className="p-3 font-bold text-rose-600">₦{fee.balance.toLocaleString()}</td>
                     <td className="p-3">
                       <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
