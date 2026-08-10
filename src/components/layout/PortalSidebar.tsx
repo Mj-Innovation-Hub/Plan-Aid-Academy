@@ -13,15 +13,12 @@ import {
   Kanban, 
   CreditCard, 
   LogOut, 
-  Sparkles,
   Calendar,
   Award,
   ChevronRight,
   ShieldCheck,
-  Building2,
-  FileText,
   Megaphone,
-  Settings
+  ArrowLeft
 } from 'lucide-react';
 
 interface PortalSidebarProps {
@@ -42,10 +39,9 @@ export const PortalSidebar: React.FC<PortalSidebarProps> = ({ mobileOpen, onClos
             { href: '/portal/super-admin/results', label: 'Results & Gradebook Grid', icon: Calculator },
             { href: '/portal/super-admin/crm', label: 'Admissions CRM Funnel', icon: Kanban },
           ]},
-          { group: 'SCHOOL MANAGEMENT', items: [
+          { group: 'MANAGEMENT', items: [
             { href: '/portal/admin', label: 'Student Directory & Staff', icon: Users },
             { href: '/portal/admin#fees', label: 'Tuition Fees Ledger', icon: CreditCard },
-            { href: '/portal/admin#announcements', label: 'Announcements & News', icon: Megaphone },
           ]}
         ];
 
@@ -58,7 +54,6 @@ export const PortalSidebar: React.FC<PortalSidebarProps> = ({ mobileOpen, onClos
             { href: '/portal/admin/crm', label: 'Admissions / CRM', icon: Kanban },
             { href: '/portal/admin/results', label: 'Results / Gradebook', icon: Calculator },
             { href: '/portal/admin#fees', label: 'Fees & Accounting', icon: CreditCard },
-            { href: '/portal/admin#announcements', label: 'Announcements', icon: Megaphone },
           ]}
         ];
 
@@ -88,118 +83,118 @@ export const PortalSidebar: React.FC<PortalSidebarProps> = ({ mobileOpen, onClos
   const navGroups = getRoleNavLinks();
 
   const sidebarContent = (
-    <>
+    <div className="flex flex-col h-full justify-between p-4 bg-[#1B2A4A] text-white">
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <Link href="/" onClick={onCloseMobile} className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#0F8B9E] text-white flex items-center justify-center shadow-md">
-              <GraduationCap className="w-6 h-6" />
+        {/* Identity Header */}
+        <div className="flex items-center justify-between pb-4 border-b border-slate-700">
+          <Link href="/" onClick={onCloseMobile} className="flex items-center space-x-2.5">
+            <div className="w-9 h-9 rounded-lg bg-[#0F8B9E] text-white flex items-center justify-center">
+              <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="font-extrabold text-sm tracking-tight text-white leading-tight">PLAN AID ACADEMY</h1>
-              <p className="text-[10px] text-teal-300 font-bold uppercase tracking-wider">Primary • Secondary • Madrasah</p>
+              <h1 className="font-bold text-xs tracking-tight text-white leading-tight">PLAN AID ACADEMY</h1>
+              <p className="text-[10px] text-slate-300 font-medium uppercase">PORTAL DASHBOARD</p>
             </div>
           </Link>
           {onCloseMobile && (
             <button
               onClick={onCloseMobile}
-              className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#23355a]"
+              className="lg:hidden p-1 rounded text-slate-400 hover:text-white"
               aria-label="Close Mobile Sidebar"
             >
-              <LogOut className="w-5 h-5 rotate-180" />
+              <LogOut className="w-4 h-4 rotate-180" />
             </button>
           )}
         </div>
 
-        {/* Current User Card */}
-        <div className="bg-[#121c32] rounded-2xl p-3.5 border border-[#23355a] flex items-center space-x-3">
+        {/* User Card */}
+        <div className="bg-slate-800/80 rounded-lg p-3 border border-slate-700 flex items-center space-x-3">
           <img
             src={currentUser?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'}
             alt={currentUser?.name || 'User'}
-            className="w-9 h-9 rounded-full object-cover border-2 border-[#0F8B9E] shrink-0"
+            className="w-8 h-8 rounded-full object-cover border border-[#0F8B9E] shrink-0"
           />
-          <div className="truncate">
-            <div className="text-xs font-bold text-white truncate">{currentUser?.name}</div>
-            <span className="inline-block text-[10px] font-extrabold text-teal-300 uppercase tracking-wider">
-              {role.replace('_', ' ')}
-            </span>
+          <div className="overflow-hidden">
+            <div className="text-xs font-bold text-white truncate">{currentUser?.name || 'Authorized User'}</div>
+            <div className="text-[10px] text-[#0F8B9E] font-semibold truncate capitalize">{role.replace('_', ' ')}</div>
           </div>
         </div>
 
-        {/* Navigation Links Grouped */}
+        {/* Navigation Items */}
         <nav className="space-y-5">
-          {navGroups.map((group, idx) => (
-            <div key={idx} className="space-y-1">
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider px-3 mb-1.5">
+          {navGroups.map((group, groupIdx) => (
+            <div key={groupIdx} className="space-y-1.5">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
                 {group.group}
               </div>
-              {group.items.map((link) => {
-                const Icon = link.icon;
-                const isActive = pathname === link.href;
+              <div className="space-y-1">
+                {group.items.map((item, itemIdx) => {
+                  const Icon = item.icon;
+                  const isActive = pathname === item.href || (item.href.includes('#') && pathname === item.href.split('#')[0]);
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={onCloseMobile}
-                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                      isActive
-                        ? 'bg-[#0F8B9E] text-white shadow-md font-bold'
-                        : 'text-slate-300 hover:bg-[#23355a] hover:text-white'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <Icon className="w-4 h-4 text-teal-300" />
-                      <span>{link.label}</span>
-                    </div>
-                    {isActive && <ChevronRight className="w-3.5 h-3.5 text-white" />}
-                  </Link>
-                );
-              })}
+                  return (
+                    <Link
+                      key={itemIdx}
+                      href={item.href}
+                      onClick={onCloseMobile}
+                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition ${
+                        isActive
+                          ? 'bg-[#0F8B9E] text-white shadow-xs'
+                          : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-2.5 truncate">
+                        <Icon className="w-4 h-4 shrink-0" />
+                        <span className="truncate">{item.label}</span>
+                      </div>
+                      <ChevronRight className={`w-3.5 h-3.5 opacity-60 ${isActive ? 'inline' : 'hidden'}`} />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           ))}
         </nav>
       </div>
 
-      {/* Footer Exit Button */}
-      <div className="pt-4 border-t border-[#2a3e68] space-y-2 mt-auto">
+      {/* Footer Navigation Back to Main Website */}
+      <div className="pt-4 border-t border-slate-700 space-y-2">
         <Link
           href="/"
           onClick={onCloseMobile}
-          className="flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-[#23355a] rounded-xl transition"
+          className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:bg-slate-800 hover:text-white transition"
         >
-          <Sparkles className="w-4 h-4 text-teal-300" />
-          <span>Public School Website</span>
+          <div className="flex items-center space-x-2">
+            <ArrowLeft className="w-4 h-4 text-[#0F8B9E]" />
+            <span>Return to School Website</span>
+          </div>
         </Link>
+
         <button
-          onClick={() => {
-            if (onCloseMobile) onCloseMobile();
-            logout();
-          }}
-          className="w-full flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-500/10 rounded-xl transition"
+          onClick={logout}
+          className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-rose-300 hover:bg-rose-950/40 hover:text-rose-200 transition"
         >
-          <LogOut className="w-4 h-4" />
-          <span>Sign Out</span>
+          <div className="flex items-center space-x-2">
+            <LogOut className="w-4 h-4" />
+            <span>Sign Out of Portal</span>
+          </div>
         </button>
       </div>
-    </>
+    </div>
   );
 
   return (
     <>
-      {/* Desktop Persistent Sidebar */}
-      <aside className="hidden lg:flex w-64 bg-[#1B2A4A] text-white flex-col justify-between min-h-screen border-r border-[#2a3e68] shadow-xl shrink-0 p-5">
+      {/* Desktop Permanent Sidebar */}
+      <aside className="hidden lg:block w-64 bg-[#1B2A4A] h-screen sticky top-0 shrink-0 z-30">
         {sidebarContent}
       </aside>
 
       {/* Mobile Drawer Overlay */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
-          <div
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
-            onClick={onCloseMobile}
-          />
-          <aside className="relative w-72 max-w-[85vw] bg-[#1B2A4A] text-white flex flex-col justify-between h-full border-r border-[#2a3e68] shadow-2xl z-10 p-5 overflow-y-auto">
+          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs" onClick={onCloseMobile} />
+          <aside className="relative w-72 bg-[#1B2A4A] h-full shadow-2xl z-50">
             {sidebarContent}
           </aside>
         </div>
