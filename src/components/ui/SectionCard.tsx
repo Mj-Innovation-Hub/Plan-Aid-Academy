@@ -13,37 +13,26 @@ export const SectionCard: React.FC<SectionCardProps> = ({ section }) => {
   const getIcon = () => {
     switch (section.id) {
       case 'primary':
-        return <BookOpen className="w-6 h-6 text-primary-500" />;
+        return <BookOpen className="w-5 h-5 text-[#0F8B9E]" />;
       case 'secondary':
-        return <Cpu className="w-6 h-6 text-royal-600" />;
+        return <Cpu className="w-5 h-5 text-indigo-700" />;
       case 'madrasah':
-        return <span className="font-arabic font-bold text-lg text-emerald-700">قرآن</span>;
+        return <span className="font-arabic font-bold text-base text-emerald-700">قرآن</span>;
       default:
-        return <GraduationCap className="w-6 h-6 text-primary-500" />;
-    }
-  };
-
-  const getBorderColor = () => {
-    switch (section.id) {
-      case 'primary':
-        return 'hover:border-primary-400';
-      case 'secondary':
-        return 'hover:border-royal-500';
-      case 'madrasah':
-        return 'hover:border-emerald-600';
+        return <GraduationCap className="w-5 h-5 text-[#0F8B9E]" />;
     }
   };
 
   return (
-    <div className={`group rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between ${getBorderColor()}`}>
+    <div className="rounded-xl bg-white border border-slate-200 p-6 shadow-xs hover:border-slate-300 hover:shadow-md transition flex flex-col justify-between">
       <div className="space-y-4">
         {/* Top Header */}
         <div className="flex items-center justify-between">
-          <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
             {getIcon()}
           </div>
           {section.arabicTitle && (
-            <span className="font-arabic text-lg font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span className="font-arabic text-sm font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
               {section.arabicTitle}
             </span>
           )}
@@ -51,26 +40,26 @@ export const SectionCard: React.FC<SectionCardProps> = ({ section }) => {
 
         {/* Title & Tagline */}
         <div>
-          <h3 className="text-xl font-bold text-royal-950 group-hover:text-primary-500 transition-colors">
+          <h3 className="text-lg font-bold text-[#1B2A4A]">
             {section.title}
           </h3>
-          <p className="text-xs font-semibold text-royal-600 mt-1">
+          <p className="text-xs font-medium text-[#0F8B9E] mt-0.5">
             {section.tagline}
           </p>
         </div>
 
         {/* Description */}
-        <p className="text-sm text-slate-600 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
           {section.description}
         </p>
 
-        {/* Curriculum Highlights */}
+        {/* Key Focus Highlights */}
         <div className="pt-2 space-y-1.5">
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Key Focus Areas</div>
+          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Key Focus Areas</div>
           <div className="grid grid-cols-2 gap-1.5">
             {section.curriculum.slice(0, 4).map((item, i) => (
-              <div key={i} className="flex items-center space-x-1.5 text-xs font-medium text-slate-700">
-                <CheckCircle2 className="w-3.5 h-3.5 text-primary-500 shrink-0" />
+              <div key={i} className="flex items-center space-x-1.5 text-xs text-slate-700">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E] shrink-0" />
                 <span className="truncate">{item}</span>
               </div>
             ))}
@@ -79,16 +68,16 @@ export const SectionCard: React.FC<SectionCardProps> = ({ section }) => {
       </div>
 
       {/* Footer Link */}
-      <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+      <div className="pt-5 mt-4 border-t border-slate-100 flex items-center justify-between">
         <span className="text-xs text-slate-500 font-medium">
-          {section.studentCount} Students Enrolled
+          {section.studentCount} Students
         </span>
         <Link
           href={`/academics/${section.id}`}
-          className="inline-flex items-center space-x-1 text-xs font-bold text-royal-700 group-hover:text-primary-500 transition"
+          className="inline-flex items-center space-x-1 text-xs font-bold text-[#1B2A4A] hover:text-[#0F8B9E] transition"
         >
-          <span>Explore Arm</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          <span>Explore Program</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
     </div>

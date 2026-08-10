@@ -6,12 +6,12 @@ import {
   Download, 
   FileText, 
   Send, 
-  Calendar, 
   PhoneCall, 
   HelpCircle, 
   Printer, 
-  Sparkles,
-  UserCheck
+  UserCheck,
+  CreditCard,
+  Building
 } from 'lucide-react';
 import { SchoolSection } from '@/lib/types';
 
@@ -30,261 +30,307 @@ export default function AdmissionsPage() {
   };
 
   const handleDownloadForm = () => {
-    alert("Downloading Official Plan Aid Academy Admission Application Form (PDF)...");
+    alert("Downloading Official Plan Aid Academy Admission Form (PDF)...");
   };
 
   return (
     <div className="space-y-16 pb-16">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-b from-sky-100 via-white to-slate-50 py-16 border-b border-sky-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
-          <span className="px-3.5 py-1 bg-primary-100 text-royal-800 font-bold text-xs rounded-full uppercase tracking-wider">
-            Admissions 2026/2027 Session
+      {/* Header Banner */}
+      <section className="bg-[#F8FAFC] py-12 sm:py-16 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span className="px-3 py-1 bg-white text-[#1B2A4A] border border-slate-200 text-xs font-semibold rounded uppercase tracking-wider">
+            2026 / 2027 Academic Session
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-royal-950 tracking-tight">
-            Join the Plan Aid Academy Family
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#1B2A4A] tracking-tight">
+            Admissions & Enrollment Guide
           </h1>
-          <p className="text-slate-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-            Follow our simple 4-step enrollment process or fill out the online application form below to connect with our admissions team.
+          <p className="text-slate-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+            Welcome to the Plan Aid Academy admissions portal. Below is our guided step-by-step application process, fee structure overview, and online inquiry form.
           </p>
         </div>
       </section>
 
-      {/* 4-Step Enrollment Process */}
+      {/* 4-Step Guided Enrollment Roadmap */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-2">
-          <span className="text-xs font-bold text-primary-500 uppercase tracking-wider">Simple Steps</span>
-          <h2 className="text-3xl font-extrabold text-royal-950">Enrollment Process</h2>
+          <span className="text-xs font-bold text-[#0F8B9E] uppercase tracking-wider">Step-by-Step Roadmap</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B2A4A]">Guided Admission Process</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Step 1 */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative">
-            <div className="w-10 h-10 rounded-full bg-primary-500 text-white font-black flex items-center justify-center text-lg">
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-[#1B2A4A] text-white font-bold flex items-center justify-center text-sm">
               1
             </div>
-            <h3 className="font-bold text-base text-royal-950">Submit Inquiry</h3>
-            <p className="text-xs text-slate-600">
-              Fill out the online application form below or visit campus to pick up a physical form.
+            <h3 className="font-bold text-base text-[#1B2A4A]">Submit Inquiry / Form</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Fill out the online form below or visit any campus administrative desk to pick up a physical application pack.
             </p>
           </div>
 
           {/* Step 2 */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative">
-            <div className="w-10 h-10 rounded-full bg-royal-600 text-white font-black flex items-center justify-center text-lg">
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-[#0F8B9E] text-white font-bold flex items-center justify-center text-sm">
               2
             </div>
-            <h3 className="font-bold text-base text-royal-950">Campus Tour & Assessment</h3>
-            <p className="text-xs text-slate-600">
-              Attend a guided tour of the robotics lab and complete student placement assessment.
+            <h3 className="font-bold text-base text-[#1B2A4A]">CBT & Oral Assessment</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Student sits for a diagnostic evaluation in Mathematics, English Language, and Qur'anic recitation level.
             </p>
           </div>
 
           {/* Step 3 */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative">
-            <div className="w-10 h-10 rounded-full bg-amber-500 text-white font-black flex items-center justify-center text-lg">
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-[#1B2A4A] text-white font-bold flex items-center justify-center text-sm">
               3
             </div>
-            <h3 className="font-bold text-base text-royal-950">Offer of Admission</h3>
-            <p className="text-xs text-slate-600">
-              Successful applicants receive official admission letters and fee payment schedules.
+            <h3 className="font-bold text-base text-[#1B2A4A]">Offer & Fee Confirmation</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Successful applicants receive an official admission offer letter, payment invoice, and document checklist.
             </p>
           </div>
 
           {/* Step 4 */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative">
-            <div className="w-10 h-10 rounded-full bg-emerald-600 text-white font-black flex items-center justify-center text-lg">
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+            <div className="w-9 h-9 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">
               4
             </div>
-            <h3 className="font-bold text-base text-royal-950">Orientation & Resumption</h3>
-            <p className="text-xs text-slate-600">
-              Receive book packs, uniforms, portal credentials, and join morning orientation assembly!
+            <h3 className="font-bold text-base text-[#1B2A4A]">Portal Onboarding</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Receive student portal logins, uniform kits, book lists, and attend orientation day before resumption.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Printable Form & Requirements */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-royal-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-8 space-y-4">
-            <span className="px-3 py-1 bg-primary-500 text-white text-xs font-bold rounded-full uppercase">
-              Printable Option
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white">
-              Prefer a Physical Application Form?
-            </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              Download and print our official PDF admission form. Fill it out manually and drop it off at any of our campus registry offices in Kano, Kaduna, or Abuja.
-            </p>
+      {/* Fee Structure Summary Cards */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-bold text-[#0F8B9E] uppercase tracking-wider">Financial Transparency</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B2A4A]">Termly Fee Structure Overview</h2>
+          <p className="text-xs sm:text-sm text-slate-600">Fees include tuition, STEM lab access, ICT CBT subscriptions, and Madrasah materials.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Primary */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-bold text-base text-[#1B2A4A]">Primary School</h3>
+              <span className="text-xs font-semibold text-[#0F8B9E] bg-sky-50 px-2 py-0.5 rounded">Basic Ed</span>
+            </div>
+            <div className="text-2xl font-extrabold text-[#1B2A4A]">₦120,000 <span className="text-xs font-normal text-slate-500">/ term</span></div>
+            <ul className="space-y-2 text-xs text-slate-600">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>Foundational STEM & Coding</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>Basic Hifz & Tajweed Instruction</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>Literacy & Computational Math</span>
+              </li>
+            </ul>
           </div>
-          <div className="lg:col-span-4 text-right flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
+
+          {/* Secondary */}
+          <div className="bg-white p-6 rounded-xl border border-2 border-[#0F8B9E] p-6 rounded-xl space-y-4 shadow-sm relative">
+            <span className="absolute -top-3 right-4 px-2.5 py-0.5 bg-[#0F8B9E] text-white text-[10px] font-bold rounded uppercase">Most Popular</span>
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-bold text-base text-[#1B2A4A]">Secondary College</h3>
+              <span className="text-xs font-semibold text-[#0F8B9E] bg-sky-50 px-2 py-0.5 rounded">High School</span>
+            </div>
+            <div className="text-2xl font-extrabold text-[#1B2A4A]">₦165,000 <span className="text-xs font-normal text-slate-500">/ term</span></div>
+            <ul className="space-y-2 text-xs text-slate-600">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>WAEC / NECO / JAMB Intensive Prep</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>Advanced Robotics & Micro-controllers</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F8B9E]" />
+                <span>CBT Exam Simulation License</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Madrasah */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-bold text-base text-[#1B2A4A]">Madrasah Tahfiz</h3>
+              <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Hifz Focus</span>
+            </div>
+            <div className="text-2xl font-extrabold text-[#1B2A4A]">₦95,000 <span className="text-xs font-normal text-slate-500">/ term</span></div>
+            <ul className="space-y-2 text-xs text-slate-600">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Intensive Daily Hifz Circle</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Certified Tajweed Masters</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Arabic Grammar & Adab Literature</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Downloadable Option & Online Form */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Printable Form Info Box */}
+          <div className="lg:col-span-5 bg-[#1B2A4A] text-white p-8 rounded-xl border border-slate-700 space-y-5">
+            <span className="px-2.5 py-0.5 bg-[#0F8B9E] text-white text-xs font-semibold rounded">
+              Physical Application
+            </span>
+            <h3 className="text-xl font-bold text-white">
+              Download PDF Form
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              If you prefer filling out a hardcopy application form, you can download the official PDF form, print it out, and submit it to any of our campuses in Kano, Kaduna, or Abuja.
+            </p>
+            
+            <div className="space-y-2 border-t border-slate-700 pt-4 text-xs text-slate-300">
+              <div className="font-semibold text-white">Required Attachments with Hardcopy:</div>
+              <ul className="space-y-1 pl-4 list-disc">
+                <li>2 Passport photographs of the applicant</li>
+                <li>Copy of official Birth Certificate</li>
+                <li>Most recent Academic Progress Report</li>
+              </ul>
+            </div>
+
             <button
               onClick={handleDownloadForm}
-              className="w-full sm:w-auto px-6 py-3.5 bg-white text-royal-950 font-extrabold text-sm rounded-xl shadow hover:bg-slate-100 transition inline-flex items-center justify-center space-x-2"
+              className="w-full py-3 bg-white hover:bg-slate-100 text-[#1B2A4A] font-bold text-xs rounded-lg transition flex items-center justify-center space-x-2"
             >
-              <Download className="w-5 h-5 text-primary-500" />
-              <span>Download Form (PDF)</span>
+              <Download className="w-4 h-4 text-[#0F8B9E]" />
+              <span>Download Official Form (PDF)</span>
             </button>
-            <a
-              href="https://wa.me/2348031234567?text=Hello%20Plan%20Aid%20Academy,%20I%20would%20like%20to%20inquire%20about%20admissions"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow transition inline-flex items-center justify-center space-x-2"
-            >
-              <span>Chat on WhatsApp</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Online Application Form */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl space-y-6">
-          <div className="text-center space-y-2 border-b border-slate-100 pb-4">
-            <h3 className="text-2xl font-bold text-royal-950">Online Admission & Inquiry Form</h3>
-            <p className="text-xs text-slate-500">Submitting this form captures your lead directly into our Admissions CRM for immediate follow-up.</p>
           </div>
 
-          {submitted ? (
-            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 text-center space-y-3">
-              <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-              <h4 className="text-xl font-bold text-emerald-900">Inquiry Submitted Successfully!</h4>
-              <p className="text-xs text-emerald-800 max-w-md mx-auto">
-                Thank you <strong>{parentName}</strong>! Your inquiry for <strong>{childName}</strong> has been logged in our Admissions pipeline. Our officer will contact you at <strong>{phone}</strong> within 24 hours.
+          {/* Online Application Form */}
+          <div className="lg:col-span-7 bg-white p-8 rounded-xl border border-slate-200 space-y-6">
+            <div>
+              <h3 className="text-xl font-bold text-[#1B2A4A]">Online Admission Inquiry Form</h3>
+              <p className="text-xs text-slate-600 mt-1">
+                Fill in your contact details below to initiate your application. Our admissions team will reach out within 24 hours.
               </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="mt-2 px-4 py-2 bg-emerald-700 text-white font-bold text-xs rounded-xl"
-              >
-                Submit Another Application
-              </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 text-sm">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-bold text-slate-700 block mb-1">Parent / Guardian Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Dr. Kabiru Sani"
-                    value={parentName}
-                    onChange={(e) => setParentName(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
 
-                <div>
-                  <label className="font-bold text-slate-700 block mb-1">Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+234 803 123 4567"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-bold text-slate-700 block mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    placeholder="parent@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="font-bold text-slate-700 block mb-1">Child's Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Hamza Kabiru Sani"
-                    value={childName}
-                    onChange={(e) => setChildName(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 block mb-1">Intended School Arm *</label>
-                <select
-                  value={intendedSection}
-                  onChange={(e) => setIntendedSection(e.target.value as SchoolSection)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-royal-950 focus:ring-2 focus:ring-primary-500"
+            {submitted ? (
+              <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl space-y-3 text-center">
+                <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+                <h4 className="font-bold text-base text-emerald-950">Application Inquiry Received!</h4>
+                <p className="text-xs text-emerald-800 leading-relaxed">
+                  Thank you, <strong>{parentName}</strong>. Your inquiry for <strong>{childName}</strong> has been logged. Our admissions desk will call you shortly at <strong>{phone}</strong>.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="px-4 py-2 bg-emerald-700 text-white text-xs font-bold rounded-lg"
                 >
-                  <option value="primary">Primary (Basic Education) — Ages 5 to 11</option>
-                  <option value="secondary">Secondary College — Ages 11 to 17</option>
-                  <option value="madrasah">Madrasah Tahfiz (Qur'an & Islamic Studies)</option>
-                </select>
+                  Submit Another Inquiry
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Parent / Guardian Name *</label>
+                    <input
+                      type="text"
+                      required
+                      value={parentName}
+                      onChange={(e) => setParentName(e.target.value)}
+                      placeholder="e.g. Engr. Kabir Usman"
+                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                    />
+                  </div>
 
-              <div>
-                <label className="font-bold text-slate-700 block mb-1">Questions or Special Requests</label>
-                <textarea
-                  rows={3}
-                  placeholder="Inquire about boarding, bus services, or robotics scholarships..."
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Phone Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="e.g. +234 803 123 4567"
+                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                    />
+                  </div>
+                </div>
 
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-gradient-to-r from-primary-500 via-royal-600 to-royal-800 text-white font-extrabold text-base rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center space-x-2"
-              >
-                <Send className="w-5 h-5" />
-                <span>Submit Admission Application</span>
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="parent@example.com"
+                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                    />
+                  </div>
 
-      {/* Frequently Asked Questions Accordion */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="text-center space-y-2">
-          <span className="text-xs font-bold text-primary-500 uppercase tracking-wider">Parents Info</span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-royal-950">Admissions FAQ</h2>
-        </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Child's Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      value={childName}
+                      onChange={(e) => setChildName(e.target.value)}
+                      placeholder="e.g. Fatima Kabir Usman"
+                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                    />
+                  </div>
+                </div>
 
-        <div className="space-y-3">
-          {[
-            {
-              q: "What age range is eligible for admission into Primary and Secondary arms?",
-              a: "Primary Basic Education arm admits children aged 5 to 11 years into Primary 1 through 6. Secondary College admits students aged 11 to 17 into JSS 1 through SSS 3 streams."
-            },
-            {
-              q: "Is Qur'an memorization compulsory for all enrolled students?",
-              a: "Students enrolled in the Madrasah Tahfiz arm undergo intensive daily Hifz tracks. Primary and Secondary college students also receive mandatory weekly Tajweed and Islamic ethical orientation modules."
-            },
-            {
-              q: "What are the requirements for entrance examination?",
-              a: "Candidates write computerized assessment tests covering Mathematics, English Language, and General Science. Past examination practice papers are provided upon application submission."
-            },
-            {
-              q: "Do you offer school bus transportation and boarding facilities?",
-              a: "Yes! Air-conditioned school buses cover major routes in Kano GRA, Airport Road, and environs. State-of-the-art separate boarding hostels are available for secondary boys and girls."
-            }
-          ].map((faq, idx) => (
-            <details key={idx} className="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 transition [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-sm sm:text-base text-royal-950">
-                <span>{faq.q}</span>
-                <span className="ml-2 transition group-open:rotate-180 text-primary-500 font-extrabold">▼</span>
-              </summary>
-              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                {faq.a}
-              </p>
-            </details>
-          ))}
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-slate-700">Intended Academic Arm *</label>
+                  <select
+                    value={intendedSection}
+                    onChange={(e) => setIntendedSection(e.target.value as SchoolSection)}
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                  >
+                    <option value="primary">Primary Education (Basic 1 - 6)</option>
+                    <option value="secondary">Secondary College (JSS 1 - SSS 3)</option>
+                    <option value="madrasah">Madrasah Tahfiz & Islamic Studies</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-slate-700">Additional Notes / Preferred Campus</label>
+                  <textarea
+                    rows={3}
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="Mention preferred campus (Kano, Kaduna, or Abuja) or previous school details..."
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-[#0F8B9E]"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-[#0F8B9E] hover:bg-[#0d7788] text-white font-bold text-xs rounded-lg transition flex items-center justify-center space-x-2"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Submit Admission Inquiry</span>
+                </button>
+              </form>
+            )}
+          </div>
+
         </div>
       </section>
     </div>

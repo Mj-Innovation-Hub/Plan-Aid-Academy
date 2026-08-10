@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { LightboxModal } from '@/components/ui/LightboxModal';
 import { mockGalleryItems } from '@/lib/mockData';
-import { Image as ImageIcon, Sparkles, Filter } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -23,32 +24,40 @@ export default function GalleryPage() {
 
   return (
     <div className="space-y-12 pb-16">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-b from-sky-100 via-white to-slate-50 py-16 border-b border-sky-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
-          <span className="px-3.5 py-1 bg-primary-100 text-royal-800 font-bold text-xs rounded-full uppercase tracking-wider">
-            Visual Highlights
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-royal-950 tracking-tight">
-            Plan Aid Academy Photo Gallery
-          </h1>
-          <p className="text-slate-600 max-w-2xl mx-auto text-base leading-relaxed">
-            Take a visual tour through our robotics sessions, Qur'an recitation halls, science practicals, and vibrant student activities.
-          </p>
+      {/* Breadcrumb & Header Banner */}
+      <section className="bg-[#F8FAFC] py-12 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+          <div className="flex items-center space-x-2 text-xs text-slate-500">
+            <Link href="/" className="hover:text-[#0F8B9E]">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-slate-700 font-medium">Gallery</span>
+          </div>
+
+          <div className="text-center space-y-2 pt-2">
+            <span className="px-3 py-1 bg-white text-[#1B2A4A] border border-slate-200 text-xs font-semibold rounded uppercase tracking-wider">
+              Campus Life
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1B2A4A] tracking-tight">
+              Photo & Activity Gallery
+            </h1>
+            <p className="text-slate-600 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed">
+              Explore moments from robotics lab builds, Qur'an recitation sessions, science practicals, and campus events.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Filter Tabs & Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         {/* Category Filters */}
-        <div className="flex items-center justify-center space-x-2 overflow-x-auto pb-2">
+        <div className="flex items-center justify-center space-x-2 border-b border-slate-200 pb-3 overflow-x-auto">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
                 selectedCategory === cat
-                  ? 'bg-royal-950 text-white shadow-md'
+                  ? 'bg-[#1B2A4A] text-white shadow-xs'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
@@ -63,17 +72,17 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => openLightbox(idx)}
-              className="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer border border-slate-200 bg-white"
+              className="group relative rounded-xl overflow-hidden cursor-pointer border border-slate-200 bg-[#1B2A4A] text-white shadow-xs"
             >
               <img
                 src={item.imageUrl}
                 alt={item.title}
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-64 object-cover opacity-90 group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-royal-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-5 flex flex-col justify-end">
-                <span className="text-xs font-bold text-primary-300 uppercase tracking-wider">{item.category}</span>
-                <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                <p className="text-xs text-slate-200 line-clamp-2">{item.caption}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A4A] via-[#1B2A4A]/20 to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span className="text-[10px] font-bold text-[#0F8B9E] uppercase tracking-wider">{item.category}</span>
+                <h3 className="text-sm font-bold text-white">{item.title}</h3>
+                <p className="text-xs text-slate-300 line-clamp-1">{item.caption}</p>
               </div>
             </div>
           ))}
