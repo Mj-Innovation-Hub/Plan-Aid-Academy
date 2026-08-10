@@ -6,7 +6,7 @@ import { ReportCardModal } from '@/components/ui/ReportCardModal';
 import { GradeAnalyticsCharts } from '@/components/analytics/GradeAnalyticsCharts';
 import { mockStudents, mockSubjectScores } from '@/lib/mockData';
 import { Student } from '@/lib/types';
-import { Calculator, BarChart2, Award, Printer } from 'lucide-react';
+import { BarChart2, HelpCircle } from 'lucide-react';
 
 export default function GradebookResultsPage() {
   const [selectedStudentForReportCard, setSelectedStudentForReportCard] = useState<Student | null>(null);
@@ -18,46 +18,30 @@ export default function GradebookResultsPage() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Top Banner */}
-      <div className="bg-gradient-to-r from-royal-950 via-royal-900 to-royal-950 text-white rounded-2xl p-6 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-primary-500 text-white uppercase tracking-wider">
-            ACADEMIC RESULTS & GRADEBOOK MODULE
+    <div className="space-y-6 font-sans">
+      {/* Top Banner Header */}
+      <div className="bg-[#1B2A4A] text-white rounded-xl p-6 shadow-xs border border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#0F8B9E] text-white uppercase tracking-wider">
+            Academic Score Sheet & Statistical Module
           </span>
-          <h1 className="text-2xl font-black text-white mt-1">Score sheet and Analytics</h1>
-          <p className="text-xs text-slate-300">Inline score editing, auto totals, grades, class rank, and printable Report Cards</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Excel & SPSS Academic Result Sheet</h1>
+          <p className="text-xs text-slate-300">Continuous Assessment (15+15) + Examination (70) = Total Score (100%) Matrix</p>
         </div>
       </div>
 
-      {/* Statistical Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-          <div className="text-xs font-bold text-slate-400 uppercase">Class Mean Average</div>
-          <div className="text-3xl font-black text-royal-950">84.2%</div>
-          <div className="text-[11px] font-semibold text-emerald-600">JSS 3 Gold • Term 3 Final</div>
+      {/* Guided Quick Help Banner */}
+      <div className="bg-sky-50 p-4 rounded-xl border border-sky-200 text-xs text-[#1B2A4A] space-y-1">
+        <div className="flex items-center space-x-1.5 font-bold text-[#0F8B9E]">
+          <HelpCircle className="w-4 h-4" />
+          <span>Excel & SPSS Score Sheet Guide:</span>
         </div>
-
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-          <div className="text-xs font-bold text-slate-400 uppercase">Highest Class Score</div>
-          <div className="text-3xl font-black text-primary-500">97.0</div>
-          <div className="text-[11px] font-semibold text-slate-600">Zayd Danjuma (Robotics)</div>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-          <div className="text-xs font-bold text-slate-400 uppercase">Pass Rate Percentage</div>
-          <div className="text-3xl font-black text-emerald-700">100%</div>
-          <div className="text-[11px] font-semibold text-emerald-600">28 / 28 Students Above 50%</div>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-          <div className="text-xs font-bold text-slate-400 uppercase">Standard Deviation</div>
-          <div className="text-3xl font-black text-amber-600">5.82</div>
-          <div className="text-[11px] font-semibold text-slate-500">Consistent performance distribution</div>
-        </div>
+        <p className="text-slate-700 leading-relaxed">
+          Use the <strong>Excel Data View</strong> tab to type score entries inline (1st CA, 2nd CA, Exam). Switch to <strong>SPSS Variable View</strong> to inspect metadata definitions, or view <strong>SPSS Output & Descriptives</strong> for automated Mean (x̄), Standard Deviation (SD), and Pass Rate statistical metrics.
+        </p>
       </div>
 
-      {/* Interactive Gradebook Grid Component */}
+      {/* Interactive SPSS & Excel Gradebook Component */}
       <GradebookGrid
         students={mockStudents}
         initialScores={mockSubjectScores}
@@ -65,15 +49,15 @@ export default function GradebookResultsPage() {
       />
 
       {/* Statistical Recharts Visualization */}
-      <div className="space-y-4 pt-4">
-        <h3 className="font-bold text-lg text-royal-950 flex items-center space-x-2">
-          <BarChart2 className="w-5 h-5 text-primary-500" />
-          <span>Grade Analytics & Subject Performance</span>
+      <div className="space-y-4 pt-4 border-t border-slate-200">
+        <h3 className="font-bold text-base text-[#1B2A4A] flex items-center space-x-2">
+          <BarChart2 className="w-4 h-4 text-[#0F8B9E]" />
+          <span>Grade Analytics & Statistical Distribution</span>
         </h3>
         <GradeAnalyticsCharts />
       </div>
 
-      {/* Printable Report Card Modal */}
+      {/* Printable Terminal Report Card Modal */}
       <ReportCardModal
         isOpen={isReportCardOpen}
         onClose={() => setIsReportCardOpen(false)}
